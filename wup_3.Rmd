@@ -29,32 +29,32 @@ basicCN <- ggplot(davisdata,aes(x=Seat,y=alcohol))
 ```{r}
 basicCN + geom_boxplot()
 ```
-  
+According to the graph, it seems like alcohol was consumed the least by people sitting in the front seats. The middle seats had quite a few variants on the outside however, it seems not to reach over 40. The back seats reached over 40. 
   
 ### get fancy  
 
 ```{r}
-basicCN + geom_boxplot(notch=FALSE,outlier.color = "red") + stat_boxplot(geom ='errorbar') + labs(title="Alcohol vs Seat boxplot \n with 2 lines")
+basicCN + geom_boxplot(notch=FALSE,outlier.color = "black") + stat_boxplot(geom ='errorbar') + labs(title="Alcohol vs Seat boxplot \n with 2 lines")
 ```
-
-## Numerical Summarys 
+According to this box plot the front seat is quite low compared to the middle and the back seat. There are some outside variants. 
+## Numerical Summarys
 
 
 ```{r}
 favstats(alcohol~Seat,data=davisdata)
 ```
-
-
+According to the numerical summary, the back row consumed alcohol at the rate of 9.63, compared to the middle that consumed 3.28, and the first row 1.80. 
 
 ## Inferential Tests
 ```{r}
 model1 <- aov(alcohol~Seat,data=davisdata)
 summary.aov(model1)
 ```
-
+The hypotheses concludes that seating could effect the amount of alcohol a person could consumed. The p-value is 9.656 which is quite high which could rule out a null hypothesis.
   
 
 
 ## Conclusions
 
+In conclusion, the question was asked "Is there a difference between the alcohol consumed between the row you choose to sit in?" According to the graph, number summary,and inferential evidence. It appears that seating choices could play a part in how much alcohol you consume. 
 
